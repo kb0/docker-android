@@ -1,11 +1,11 @@
 FROM runmymind/docker-android-sdk:latest
 
 # install gradle
-RUN wget https://services.gradle.org/distributions/gradle-7.3.3-bin.zip && \
+RUN wget https://services.gradle.org/distributions/gradle-7.5.1-bin.zip && \
     mkdir /opt/gradle && \
-    unzip -d /opt/gradle gradle-7.3.3-bin.zip
+    unzip -d /opt/gradle gradle-7.5.1-bin.zip
 
-ENV PATH="/opt/gradle/gradle-7.3.3/bin:${PATH}"
+ENV PATH="/opt/gradle/gradle-7.5.1/bin:${PATH}"
 
 # work directory
 WORKDIR /app
