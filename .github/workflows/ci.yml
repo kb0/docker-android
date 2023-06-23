@@ -8,7 +8,7 @@ on:
       - "v*.*.*"
 
 env:
-  IMAGE_NAME: android
+  IMAGE_NAME: kb00/android
 
 jobs:
   build:
@@ -48,10 +48,6 @@ jobs:
         name: Build and push android image
         uses: docker/build-push-action@v4
         with:
-          context: ./
-          file: ./Dockerfile
-          builder: ${{ steps.buildx.outputs.name }}
+          context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:android-buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:android-buildcache,mode=max
