@@ -1,12 +1,12 @@
 FROM instrumentisto/flutter:3.29.2-androidsdk35-r0
 
 # install gradle
+RUN mkdir /opt/gradle
+
 RUN wget https://services.gradle.org/distributions/gradle-8.10-bin.zip && \
-    mkdir /opt/gradle && \
     unzip -d /opt/gradle gradle-8.10-bin.zip
     
 RUN wget https://services.gradle.org/distributions/gradle-8.12.1-bin.zip && \
-    mkdir /opt/gradle && \
     unzip -d /opt/gradle gradle-8.12.1-bin.zip
 
 ENV PATH="/opt/gradle/gradle-8.12.1/bin:${PATH}"
