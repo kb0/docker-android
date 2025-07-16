@@ -1,4 +1,4 @@
-FROM instrumentisto/flutter:3.32.5-androidsdk35-r0
+FROM instrumentisto/flutter:3.32.6-androidsdk35-r0
 
 # install gradle
 RUN mkdir /opt/gradle
