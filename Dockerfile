@@ -1,4 +1,4 @@
-FROM instrumentisto/flutter:3.35.7-androidsdk35-r0
+FROM instrumentisto/flutter:3.38.4-androidsdk36-r0
 
 # install gradle
 RUN mkdir /opt/gradle
@@ -13,12 +13,11 @@ ENV PATH="/opt/gradle/gradle-8.14.3/bin:${PATH}"
 
 # update android sdk
 RUN /opt/android-sdk-linux/cmdline-tools/latest/bin/sdkmanager \
-  "platforms;android-34" \
   "platforms;android-35" \
   "platforms;android-36" \
-  "cmake;3.22.1" \
-  "ndk;26.3.11579264" \
-  "ndk;27.0.12077973"
+  "ndk;27.0.12077973" \
+  "ndk;28.1.13356709" \
+  "cmake;3.22.1"
 
 # work directory
 WORKDIR /app
