@@ -9,7 +9,7 @@ RUN wget https://services.gradle.org/distributions/gradle-8.10.2-bin.zip && \
 RUN wget https://services.gradle.org/distributions/gradle-8.14.4-bin.zip && \
     unzip -d /opt/gradle gradle-8.14.4-bin.zip
 
-RUN wget https://services.gradle.org/distributions/gradle-9.2.1-bin.zip && \
+RUN wget https://services.gradle.org/distributions/gradle-9.3.1-bin.zip && \
     unzip -d /opt/gradle gradle-9.3.1-bin.zip
 
 ENV PATH="/opt/gradle/gradle-8.14.4/bin:${PATH}"
