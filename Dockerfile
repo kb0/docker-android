@@ -3,9 +3,6 @@ FROM instrumentisto/flutter:3.41.6-androidsdk36-r0
 # install gradle
 RUN mkdir /opt/gradle
 
-RUN wget https://services.gradle.org/distributions/gradle-8.10.2-bin.zip && \
-    unzip -d /opt/gradle gradle-8.10.2-bin.zip
-
 RUN wget https://services.gradle.org/distributions/gradle-8.14.4-bin.zip && \
     unzip -d /opt/gradle gradle-8.14.4-bin.zip
 
@@ -15,15 +12,18 @@ RUN wget https://services.gradle.org/distributions/gradle-9.3.1-bin.zip && \
 ENV PATH="/opt/gradle/gradle-8.14.4/bin:${PATH}"
 
 # update android sdk
-RUN /opt/android-sdk-linux/cmdline-tools/latest/bin/sdkmanager \
+RUN sdkmanager --uninstall "emulator" && \
+  /opt/android-sdk-linux/cmdline-tools/latest/bin/sdkmanager \
   "platform-tools" \
-  "platforms;android-34" \
   "platforms;android-35" \
   "platforms;android-36" \
-  "build-tools;35.0.1" \  
+  "build-tools;35.0.0" \
+  "build-tools;35.0.1" \
   "build-tools;36.1.0" \
   "ndk;28.2.13676358" \
   "cmake;3.22.1"
+  
+RUN flutter config --no-analytics
 
 # work directory
 WORKDIR /app
