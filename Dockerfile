@@ -48,7 +48,7 @@ RUN mkdir /opt/gradle \
     && printf 'pluginManagement { repositories { gradlePluginPortal(); mavenCentral(); google() } }\ndependencyResolutionManagement { repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS); repositories { mavenCentral(); google() } }\nrootProject.name = "temp"\n' > settings.gradle \
     && printf 'plugins { id("base") }\n' > build.gradle.kts \
     && gradle wrapper --gradle-version ${gradle_8_ver} \
-    && ./gradlew
+    && ./gradlew \
     && gradle wrapper --gradle-version ${gradle_9_ver} \
     && ./gradlew
 
