@@ -3,7 +3,7 @@
 ARG android_sdk_ver=36
 FROM ghcr.io/cirruslabs/android-sdk:${android_sdk_ver}
 
-ARG flutter_ver=3.44.0
+ARG flutter_ver=3.44.8
 ARG gradle_8_ver=8.14.5
 ARG gradle_9_ver=9.5.1
 
@@ -53,7 +53,16 @@ RUN mkdir /opt/gradle \
     && ./gradlew
 
 # update android sdk
-RUN sdkmanager --uninstall "emulator"
+RUN sdkmanager --uninstall "emulator" \
+    && /opt/android-sdk-linux/cmdline-tools/latest/bin/sdkmanager \
+       "platforms;android-36" \
+       "platforms;android-35" \
+       "platforms;android-34" \
+       "build-tools;36.0.0" \
+       "build-tools;35.0.0" \
+       "build-tools;34.0.0" \
+       "cmake;3.22.1" \       
+       "ndk;28.2.13676358"
 
 # work directory
 WORKDIR /app
