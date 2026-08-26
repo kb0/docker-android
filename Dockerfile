@@ -40,9 +40,10 @@ RUN apt-get update \
 RUN mkdir /opt/gradle \
     && wget https://services.gradle.org/distributions/gradle-${gradle_8_ver}-bin.zip \
     && unzip -d /opt/gradle gradle-${gradle_8_ver}-bin.zip \
+    && ln -s /opt/gradle/gradle-${gradle_8_ver} /opt/gradle/gradle-8 \
     && wget https://services.gradle.org/distributions/gradle-${gradle_9_ver}-bin.zip \
     && unzip -d /opt/gradle gradle-${gradle_9_ver}-bin.zip \
-    && ln -s /opt/gradle/gradle-${gradle_8_ver} /opt/gradle/gradle-8 \
+    && ln -s /opt/gradle/gradle-${gradle_9_ver} /opt/gradle/gradle-9 \
     && mkdir /opt/gradle/wrapper \
     && cd /opt/gradle/wrapper \
     && printf 'pluginManagement { repositories { gradlePluginPortal(); mavenCentral(); google() } }\ndependencyResolutionManagement { repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS); repositories { mavenCentral(); google() } }\nrootProject.name = "temp"\n' > settings.gradle \
