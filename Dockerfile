@@ -57,6 +57,7 @@ RUN mkdir /opt/gradle \
 RUN sdkmanager --uninstall "emulator" \
     && /opt/android-sdk-linux/cmdline-tools/latest/bin/sdkmanager \
        "platforms;android-37.2" \
+       "platforms;android-37.0" \
        "platforms;android-36" \
        "platforms;android-35" \
        "platforms;android-34" \
