@@ -3,14 +3,14 @@
 ARG android_sdk_ver=36
 FROM ghcr.io/cirruslabs/android-sdk:${android_sdk_ver}
 
-ARG flutter_ver=3.44.9
+ARG flutter_ver=3.47.2
 ARG gradle_8_ver=8.14.5
 ARG gradle_9_ver=9.7.1
 
 # install Flutter
 ENV FLUTTER_HOME=/usr/local/flutter \
     FLUTTER_VERSION=${flutter_ver} \
-    PATH=$PATH:/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:/opt/gradle/gradle-8/bin
+    PATH=$PATH:/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:/opt/gradle/gradle-9/bin
 
 RUN apt-get update \
  && apt-get upgrade -y \
